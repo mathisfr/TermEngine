@@ -110,6 +110,8 @@ class Graphics {
         }
 
         void InitDrawFrame() {
+            ClearFrameBuffer(_currentFrameBuffer);
+            ClearFrameBuffer(_lastFrameBuffer);
             SaveCursorPosition();
             for (std::size_t y = 0; y < HEIGHT; y++) {
                 for (std::size_t x = 0; x < WIDTH; x++) {

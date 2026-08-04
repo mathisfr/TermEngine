@@ -9,8 +9,6 @@ int main(){
     graphics.EraseDisplay();
     graphics.SetBackgroundColor(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Background::CYAN);
     graphics.SetForegroundColor(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Foreground::RED);
-    graphics.ClearFrameBuffer(graphics.GetCurrentFrameBuffer());
-    graphics.ClearFrameBuffer(graphics.GetLastFrameBuffer());
     graphics.InitDrawFrame();
     
     while (true){
