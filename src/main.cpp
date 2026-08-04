@@ -1,12 +1,4 @@
-#include <iostream>
 #include "engine/graphics.hpp"
-#include "engine/engineTime.hpp"
-#include "engine/input.hpp"
-#include "engine/primitives.hpp"
-#include "engine/physics.hpp"
-#include <unistd.h>
-#include <vector>
-#include <cmath>
 
 int main(){
     Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y> graphics;
