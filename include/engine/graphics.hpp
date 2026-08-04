@@ -130,6 +130,14 @@ class Graphics {
             CSI("2J");
         }
 
+        void EnablesAlternativeBuffer(){
+            CSI("?1049h");
+        }
+
+        void DisablesAlternativeBuffer(){
+            CSI("?1049l");
+        }
+
         Graphics::Color::Background GetBackgroundColor(){
             return _backgroundColor;
         }
