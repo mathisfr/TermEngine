@@ -79,10 +79,11 @@ class Graphics {
         Graphics() {
             CSI("8;" + std::to_string(HEIGHT) + ";" + std::to_string(WIDTH) + "t");
         }
-
         ~Graphics() = default;
         Graphics(const Graphics&) = delete;
-        Graphics& operator=(const Graphics&) = delete;
+        Graphics(Graphics&& other) noexcept = delete;
+        Graphics& operator=(const Graphics& other) = delete;
+        Graphics& operator=(Graphics&& other) noexcept = delete;
 
         FrameBuffer GetCurrentFrameBuffer(){
             return _currentFrameBuffer;

@@ -13,6 +13,13 @@ public:
     Primitives(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext): _graphicsContext(graphicsContext), _pixel(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Pixel()) {};
     Primitives(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, char character): _graphicsContext(graphicsContext), _pixel(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Pixel(character)) {};
     Primitives(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, char character, Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Background back_color, Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Foreground character_color): _graphicsContext(graphicsContext), _pixel(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Pixel(character, back_color, character_color)) {};
+    virtual ~Primitives() = default;
+    Primitives(const Primitives& other) = delete;
+    Primitives(Primitives&& other) noexcept = delete;
+    Primitives& operator=(const Primitives& other) = delete;
+    Primitives& operator=(Primitives&& other) noexcept = delete;
+
+    
     virtual void Draw() = 0;
 
     bool GetVisibilty(){
@@ -21,8 +28,6 @@ public:
     bool SetVisiblility(bool visibility){
         return _isVisible = visibility;
     }
-
-    virtual ~Primitives() = default;
 };
 
 class Square: public Primitives{
@@ -35,6 +40,13 @@ class Square: public Primitives{
         Square(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, std::size_t size = 10): Primitives(graphicsContext), _size(size){};
         Square(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, char character, std::size_t size = 10): Primitives(graphicsContext, character), _size(size){};
         Square(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, char character, std::size_t size = 10, Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Background back_color = Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Background::DEFAULT, Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Foreground character_color = Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Foreground::DEFAULT): Primitives(graphicsContext, character, back_color, character_color), _size(size){};
+        
+        virtual ~Square() override = default;
+        Square(const Square& other) = delete;
+        Square(Square&& other) noexcept = delete;
+        Square& operator=(const Square& other) = delete;
+        Square& operator=(Square&& other) noexcept = delete;        
+        
         virtual void Draw() override{
             if (!_isVisible) return;
             for (std::size_t y = 0; y < _size; y++){
@@ -73,6 +85,13 @@ class Rectangle: public Primitives{
         Rectangle(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, std::size_t sizeX = 10, std::size_t sizeY = 10): Primitives(graphicsContext), _sizeX(sizeX), _sizeY(sizeY){};
         Rectangle(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, char character, std::size_t sizeX = 10, std::size_t sizeY = 10): Primitives(graphicsContext, character), _sizeX(sizeX), _sizeY(sizeY){};
         Rectangle(Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>& graphicsContext, char character, std::size_t sizeX = 10, std::size_t sizeY = 10, Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Background back_color = Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Background::DEFAULT, Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Foreground character_color = Graphics<TERMINAL_SIZE_X,TERMINAL_SIZE_Y>::Color::Foreground::DEFAULT): Primitives(graphicsContext, character, back_color, character_color), _sizeX(sizeX), _sizeY(sizeY){};
+        
+        virtual ~Rectangle() override = default;
+        Rectangle(const Rectangle& other) = delete;
+        Rectangle(Rectangle&& other) noexcept = delete;
+        Rectangle& operator=(const Rectangle& other) = delete;
+        Rectangle& operator=(Rectangle&& other) noexcept = delete; 
+
         virtual void Draw() override{
             if (!_isVisible) return;
             for (std::size_t y = 0; y < _sizeY; y++){

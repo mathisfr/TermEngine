@@ -4,6 +4,13 @@
 #include <vector>
 class Physics{
     public:
+        Physics() = delete;
+        ~Physics() = delete;
+        Physics(const Physics& other) = delete;
+        Physics(Physics&& other) noexcept = delete;
+        Physics& operator=(const Physics& other) = delete;
+        Physics& operator=(Physics&& other) noexcept = delete;
+
         struct Bounding{
             int _sizeX;
             int _sizeY;

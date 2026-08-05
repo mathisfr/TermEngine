@@ -6,7 +6,13 @@
 
 class IControls {
     public:
+        IControls() = default;
         virtual ~IControls() = default;
+        IControls(const IControls& other) = delete;
+        IControls(IControls&& other) noexcept = delete;
+        IControls& operator=(const IControls& other) = delete;
+        IControls& operator=(IControls&& other) noexcept = delete;
+
         virtual void Reset() = 0;
 };
 
@@ -16,6 +22,10 @@ class AInputAction{
     public:
         AInputAction(char keyCode) : _keyCode(keyCode){};
         virtual ~AInputAction() = default;
+        AInputAction(const AInputAction& other) = delete;
+        AInputAction(AInputAction&& other) noexcept = delete;
+        AInputAction& operator=(const AInputAction& other) = delete;
+        AInputAction& operator=(AInputAction&& other) noexcept = delete;
 
         virtual void Pressed(std::unique_ptr<IControls>& data) const = 0;
 
@@ -39,6 +49,11 @@ class Input{
         raw.c_cc[VTIME] = 0;
         tcsetattr(STDIN_FILENO, TCSANOW, &raw);
     }
+    ~Input() = default;
+    Input(const Input& other) = delete;
+    Input(Input&& other) noexcept = delete;
+    Input& operator=(const Input& other) = delete;
+    Input& operator=(Input&& other) noexcept = delete;
 
     void SetupControls(std::unique_ptr<IControls> controls){
         _controls = std::move(controls);
