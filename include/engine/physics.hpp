@@ -22,8 +22,8 @@ class Physics{
         static bool _AABBSimpleCollision(const Bounding& a_bounding, const Bounding& b_bounding) {
             if (a_bounding._posX < b_bounding._posX + b_bounding._sizeX &&
                 a_bounding._posX + a_bounding._sizeX > b_bounding._posX &&
-                a_bounding._posY < b_bounding._posY + b_bounding._sizeY && // Corrigé : _sizeY au lieu de _sizeX
-                a_bounding._posY + a_bounding._sizeY > b_bounding._posY)   // Corrigé : _sizeY au lieu de _sizeX
+                a_bounding._posY < b_bounding._posY + b_bounding._sizeY &&
+                a_bounding._posY + a_bounding._sizeY > b_bounding._posY)
             {
                 return true;
             }
