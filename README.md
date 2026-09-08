@@ -1,33 +1,57 @@
 # 🚀 TermEngine
 
-Une bibliothèque C++ légère, moderne et multiplateforme pour le rendu 2D pour la création d'applications graphique dans le terminal.
+Une petite bibliothèque C++ pour apprendre à créer une **bibliothèque graphique dans le terminal**.
 
-> ⚠️ **Note :** Le projet est actuellement à ses tout débuts. Le code contient encore de nombreux points à améliorer, optimiser et ajouter, mais il constitue déjà une **bonne base de travail**.
+TermEngine est avant tout un projet personnel réalisé **en quelques jours, juste pour le fun et pour apprendre**. Le but était d'expérimenter avec le rendu 2D dans un terminal et de voir comment structurer un petit projet de ce type.
+
+Le projet n'a pas vocation à devenir une bibliothèque complète ou activement maintenue. Je ne prévois pas forcément de revenir dessus, **sauf si l'envie me reprend de l'améliorer**.
 
 ---
 
 ## 🎯 Objectif du projet
 
-L'objectif final est d'offrir une alternative simple d'utilisation aux solutions déjà existantes :
-* 🪶 **Légère** et sans dépendances lourdes.
-* ⚡ **Facile à prendre en main** avec une API moderne.
-* 🌐 **Multiplateforme** (Linux, macOS, Windows).
+L'objectif principal de TermEngine était d'apprendre et d'expérimenter autour de plusieurs concepts :
+
+* 🎨 Créer un système de rendu 2D dans le terminal.
+* 🧩 Réfléchir à la structure d'une petite bibliothèque graphique.
+* 🖥️ Expérimenter avec l'affichage d'éléments graphiques directement dans un terminal.
+* ⚙️ Comprendre les différentes contraintes liées au rendu dans un terminal.
+
+Le projet a donc avant tout une vocation **expérimentale et éducative**.
 
 ---
 
 ## 🧪 État actuel
 
-Pour l'instant, la bibliothèque est développée et testée **uniquement sur MacBook Air M4 (macOS)**. 
+Le projet fonctionne, mais il reste très limité et contient plusieurs choix d'architecture qui pourraient être améliorés.
 
-Les tests sur Linux et Windows ainsi que le support d'autres architectures arriveront au fur et à mesure.
+Il a été développé et testé principalement sur **MacBook Air M4 (macOS)**.
+
+L'un des principaux points à améliorer concerne la **gestion de la taille de la fenêtre**.
+
+Actuellement, la taille est gérée à travers une *template*, ce qui est lié à la façon dont l'architecture du projet a été construite. Cette approche implique qu'une seule taille de fenêtre fixe puisse être utilisée.
+
+C'est probablement le plus gros point que je reverrais dans l'architecture : permettre de définir la taille de la fenêtre dynamiquement plutôt que de la déterminer à travers une *template*.
+
+---
+
+## 🛠️ Ce qui pourrait être amélioré
+
+Quelques pistes possibles si je décide de reprendre le projet :
+
+* Permettre une taille de fenêtre dynamique.
+* Revoir l'architecture autour de la gestion de la fenêtre.
+* Améliorer le système de rendu.
+* Ajouter davantage de fonctionnalités graphiques.
+* Améliorer la portabilité vers Linux et Windows.
+* Nettoyer et simplifier certaines parties du code.
+
+Aucune de ces améliorations n'est cependant planifiée pour le moment.
 
 ---
 
 ## 🤝 Contribution
 
-Les contributions sont grandement appréciées ! Si tu souhaites participer au projet :
-* Améliorer le code existant ou l'architecture
-* Proposer de nouvelles fonctionnalités
-* Tester et adapter la librairie sur d'autres OS (Linux / Windows)
+Le projet étant principalement un **projet personnel d'apprentissage**, je ne prévois pas particulièrement de le maintenir activement.
 
-N'hésite pas à ouvrir une *Issue* ou à soumettre une *Pull Request* !
+Les *Issues* et *Pull Requests* restent toutefois les bienvenues si quelqu'un souhaite expérimenter, proposer une amélioration ou simplement jouer avec le projet.
